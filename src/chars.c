@@ -79,6 +79,7 @@ bool is_byte(int c)
     return ((unsigned int)c == (unsigned char)c);
 }
 
+#ifdef ENABLE_UTF8
 static void mbtowc_reset(void)
 {
     IGNORE_CALL_RESULT(mbtowc(NULL, NULL, 0));
@@ -88,6 +89,7 @@ static void wctomb_reset(void)
 {
     IGNORE_CALL_RESULT(wctomb(NULL, 0));
 }
+#endif
 
 /* This function is equivalent to isalnum() for multibyte characters. */
 bool is_alnum_mbchar(const char *c)
