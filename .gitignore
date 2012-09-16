@@ -1,0 +1,9 @@
+Makefile
+config.h
+config.log
+config.status
+POTFILES
+po/Makefile.in
+nanorc.sample
+src/.deps/
+stamp-h1
