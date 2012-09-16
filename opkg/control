@@ -1,0 +1,9 @@
+Source: nano
+Section: base
+Priority: optional
+Maintainer: Dan Drown <dan-android@drown.org>
+Package: nano
+Version: 2.2.6
+Architecture: arm
+Depends: linker ncurses
+Description: A small text editor

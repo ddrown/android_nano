@@ -1,0 +1,28 @@
+#!/bin/sh
+set -e
+
+PACKAGE=nano
+
+case "$1" in
+  build)
+    ./configure --host=arm-linux CFLAGS="-I${HOME}/droid/data/local/include/ncurses" \
+      CC=agcc LDFLAGS="-Wl,-dynamic-linker,/data/local/bin/linker -lc" \
+      --prefix=/data/local --disable-utf8
+    make
+    ;;
+
+  install)
+    rm -rf ~/tmp/$PACKAGE
+    mkdir ~/tmp/$PACKAGE
+    DESTDIR=~/tmp/$PACKAGE
+    make install DESTDIR=$DESTDIR
+    ;;
+
+  clean)
+    make clean
+    ;;
+
+  *)
+    echo unknown argument $1
+    ;;
+esac
